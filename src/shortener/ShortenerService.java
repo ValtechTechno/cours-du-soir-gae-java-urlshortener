@@ -2,6 +2,7 @@ package shortener;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
@@ -39,6 +40,25 @@ public class ShortenerService {
 		}
 		return url;
 	}
+
+	public List<ShortUrl> list() {
+        
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+        List<ShortUrl> urls = new ArrayList<ShortUrl>();
+        try {
+            String query = "select from " + ShortUrl.class.getName()
+            	+ " order by creationDate desc";
+            List<ShortUrl> result = (List<ShortUrl>) pm.newQuery(query).execute();
+            for (ShortUrl u : result) {
+            	urls.add(u);
+            }
+        } finally {
+            pm.close();
+        }
+
+        return urls;
+	}
+
 
 	public String getShortUrl(String longUrl) {
 		String shortUrl = null;

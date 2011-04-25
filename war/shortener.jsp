@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="shortener.ShortenerService"%>
 <%@page import="shortener.ShortUrl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -21,16 +23,24 @@
 </div>
 
 <div class="result">
-	<% 
-		Object url = request.getSession().getAttribute("shortUrl");
-		if (url!=null) {
-			ShortUrl shortUrl = (ShortUrl)url;
-			out.print(shortUrl.getId());
-			out.print(" -> ");
-			out.println(shortUrl.getLongUrl());
-		}
-	%>
+	<%= request.getSession().getAttribute("shortenerResult") %>
 </div>
+
+<div class="list">
+	<ul>
+	<%
+		ShortenerService service = new ShortenerService();
+		List<ShortUrl> urls = service.list();
+        for (ShortUrl u : urls) {
+ 	%>
+			<li><%=u.getId()%> -&gt;  
+			<a href="<%= u.getLongUrl() %>"><%= u.getLongUrl() %></a></li>
+	<%
+        }
+	%>
+	</ul>
+</div>
+
 
 </body>
 </html>

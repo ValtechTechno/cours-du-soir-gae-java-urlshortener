@@ -19,8 +19,7 @@ public class ShortenerServlet extends HttpServlet {
 		log.info("url:" + longUrl);
 		ShortenerService service = new ShortenerService();
 		ShortUrl shortUrl = service.shorten(longUrl);
-		req.getSession().setAttribute("shortUrl", shortUrl);
-		log.info("shortUrl:" + shortUrl);
+		req.getSession().setAttribute("shortenerResult", shortUrl.toString());
 		resp.sendRedirect("/shortener.jsp");
 	}
 

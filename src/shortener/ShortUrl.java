@@ -38,6 +38,12 @@ public class ShortUrl {
 	public Date getCreationDate() {
 		return creationDate;
 	}
+
+	@Override
+	public String toString() {
+		return "ShortUrl [id=" + id + ", longUrl=" + longUrl + "]";
+	}
+	
 	
 	
 }
