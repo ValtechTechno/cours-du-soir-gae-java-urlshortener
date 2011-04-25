@@ -5,16 +5,16 @@ xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet>
-		<servlet-name>Demo2</servlet-name>
-		<servlet-class>shortener.Demo2Servlet</servlet-class>
+		<servlet-name>Resolver</servlet-name>
+		<servlet-class>shortener.ResolverServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>Shortener</servlet-name>
 		<servlet-class>shortener.ShortenerServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Demo2</servlet-name>
-		<url-pattern>/demo2</url-pattern>
+		<servlet-name>Resolver</servlet-name>
+		<url-pattern>/r/*</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Shortener</servlet-name>
