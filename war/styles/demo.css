@@ -1,0 +1,32 @@
+/** Add css rules here for your application. */
+
+
+body {
+	font-family: Verdana, Arial, Sans-Serif
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #777777;
+  margin: 40px 0px 70px;
+  text-align: center;
+}
+
+div.form {
+  background-color: #CCCCFF;
+  padding: 20px;
+  margin: 40px 100px 40px 100px;
+}
+
+div.result {
+  padding: 20px;
+  margin: 40px 100px 40px 100px;
+}
+
+div.list {
+  padding: 20px;
+  margin: 40px 100px 40px 100px;
+}
+
+
